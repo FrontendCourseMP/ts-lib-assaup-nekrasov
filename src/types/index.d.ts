@@ -1,7 +1,14 @@
 export type TrustValidatorInit = HTMLFormElement
 
+export interface TrustValidatorOptions {
+  suppressWarnings?: boolean
+}
+
 export interface TrustValidatorConstructor {
-  new (form: TrustValidatorInit): TrustValidatorInstance
+  new (
+    form: TrustValidatorInit,
+    options?: TrustValidatorOptions
+  ): TrustValidatorInstance
 }
 
 export interface FieldRules {
@@ -21,9 +28,18 @@ export interface Validate {
   (): ValidateResult
 }
 
+export interface WarningEntry {
+  field: string
+  rule: string
+  htmlValue: unknown
+  jsValue: unknown
+}
+
 export interface TrustValidatorInstance {
   form: HTMLFormElement
   fields: Map<string, FieldRules>
+  options: TrustValidatorOptions
+  warnings: WarningEntry[]
   addField: AddField
   validate: Validate
 }
