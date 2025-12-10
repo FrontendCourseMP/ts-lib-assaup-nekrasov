@@ -13,7 +13,35 @@
   </head>
   <body>
     <main>
-      
+      <form id="demoForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required minlength="3" />
+        <span class="error-username"></span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <span class="error-email"></span>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="18" max="99" />
+        <span class="error-age"></span>
+
+        <label>Options</label>
+        <input type="checkbox" name="options" value="a" /> A
+        <input type="checkbox" name="options" value="b" /> B
+        <span data-error-for="options"></span>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+        <span class="error-password"></span>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="formResult"></div>
+      <div id="formWarnings"></div>
+
+      <script type="module" src="/src/main.ts"></script>
     </main>
   </body>
 </html>
