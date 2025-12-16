@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import TrustValidator from '../main';
+import TrustValidator from '../app';
 
 describe('TrustValidator', () => {
   it('валидирует обязательное текстовое поле', () => {
